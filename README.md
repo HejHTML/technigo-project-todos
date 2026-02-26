@@ -6,31 +6,19 @@ How I approached the task
 
 I started by planning the structure of the application and dividing it into smaller React components. I used React for the frontend and Zustand for state management. I also used CSS for styling and Flexbox/Grid for layout.
 
-My focus was to make the app functional first, and then improve the structure and styling. I worked step by step, testing the app regularly to make sure everything worked correctly. I tried to keep the code organized and readable.
+My focus was to make the app functional first, and then improve the structure and styling. I worked step by step, testing the app regularly to make sure everything worked correctly. I tried to keep the code organized and readable - but Susan still has some complaints...
 
-If I had more time, what would be next?
+If I had more time, I would improve the semantic HTML to make the code more accessible and easier to understand. I would replace some div elements with more semantic elements like header, main, and section. This since Feedback-Susan told me I could have done better!
 
-If I had more time, I would improve the semantic HTML to make the code more accessible and easier to understand. I would replace some div elements with more semantic elements like header, main, and section.
+I think you can find things in CSS that also could be better. If I was'nt so eager to get done with React and move on to Node.js I would probably work a little more on this project.
 
-I would also refactor some parts of the CSS to make it more reusable and improve the overall structure of the code.
-
-
+One thing I really got to practice again was the responsive side and flexbox/grid/move things around and make the site look nice.
 
 
 ## View it live
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Netlify:
+https://technigotodo.netlify.app/
 
 
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
-
-http://localhost:5175/
+  ➜  Local:   http://localhost:5176/
+  
