@@ -6,15 +6,14 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #4f9d69;
-  /* ljusgrön bakgrund */
+  background: #dfb258e2;
   color: #1b3a2a;
-  /* mörkgrön text */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.3s, color 0.3s;
 }
 
+/* Dark Mode */
 body.dark-mode {
   background: #1b3a2a;
   color: #e6f2ea;
@@ -24,13 +23,14 @@ body.dark-mode {
    App Container
    =============================== */
 #root>div {
+  width: 80%;
   max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 16px;
   border-radius: 12px;
   background: #6bb47e;
-  /* vit-grön bakgrund */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -39,34 +39,28 @@ body.dark-mode #root>div {
 }
 
 /* ===============================
-   Header & Dark Mode Button
+   Header
    =============================== */
-.header-wrapper {
-  position: relative;
-  /* gör att knappen kan placeras absolut */
-  margin-bottom: 20px;
-}
-
-.header-wrapper h1 {
+h1 {
   text-align: center;
   font-weight: 600;
-  margin: 0;
+  margin-bottom: 20px;
   color: inherit;
+  position: relative;
 }
 
 /* Dark Mode-knapp uppe till höger */
 .dark-mode-toggle {
   position: absolute;
-  top: 0;
+  top: -35px;
   right: 0;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: 12px;
   font-weight: 600;
   background: #124a14;
-  /* enhetlig grön */
   color: #fff;
-  border: none;
   cursor: pointer;
+  border: none;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -75,58 +69,61 @@ body.dark-mode #root>div {
 }
 
 body.dark-mode .dark-mode-toggle {
-  background: #66bb6a;
-  color: #fff;
+  background: #e6f2ea;
+  color: #1b3a2a;
 }
 
 body.dark-mode .dark-mode-toggle:hover {
-  background: #81c784;
+  background: #ffffff;
 }
 
-/* ===============================
-   Buttons (ENHETLIGA)
-   =============================== */
+/*Buttons */
 button {
   padding: 6px 14px;
-  margin: 4px 4px 8px 0;
+  margin: 4px 0 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  background: #124a14;
-  /* enhetlig grön */
+  background: #d88328;
   color: #fff;
-  /* vit text */
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 button:hover {
-  background: #062b08;
-  /* hover-effekt */
+  background: #7b3f06;
 }
 
 body.dark-mode button {
   background: #66bb6a;
-  color: #fff;
+  color: #1b3a2a;
 }
 
-/* ===============================
-   Form
-   =============================== */
+.dark-mode button:hover {
+  background: #347349;
+  color: white
+}
+
+form button[type="submit"] {
+  display: flex;
+  max-width: 150px;
+  justify-content: center;
+}
+
+/* Form*/
 form {
   display: flex;
-  gap: 12px;
-  /* mellanrum mellan input och knapp */
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 16px;
 }
 
 input[type="text"] {
   flex: 1;
-  /* tar kvarvarande utrymme */
   padding: 8px 12px;
   border: 1px solid #b2dfdb;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 body.dark-mode input[type="text"] {
@@ -135,9 +132,9 @@ body.dark-mode input[type="text"] {
   border: 1px solid #66bb6a;
 }
 
-/* ===============================
-   Todo Items
-   =============================== */
+
+
+/*Todo Items*/
 .todo-item {
   background: #ffffff;
   padding: 10px 14px;
@@ -161,18 +158,16 @@ body.dark-mode .todo-item {
   font-size: 16px;
 }
 
-/* Strike-through för completed todos */
 .todo-item input[type="checkbox"]:checked+span {
   text-decoration: line-through;
   opacity: 0.7;
 }
 
-/* Delete-knapp – enhetlig stil, samma som övriga knappar */
+/* Delete-knapp */
 .todo-item button {
   margin-left: 8px;
   font-size: 14px;
-  background: #124a14;
-  /* samma gröna som övriga knappar */
+  background: #4caf50;
   color: #fff;
 }
 
@@ -180,11 +175,55 @@ body.dark-mode .todo-item button {
   background: #66bb6a;
 }
 
-/* ===============================
-   Remaining Counter
-   =============================== */
+/* Remaining Counter*/
 p {
   font-weight: 500;
   margin-bottom: 12px;
   color: inherit;
+}
+
+/*Responsiva regler*/
+/* Tablet: 600px - 900px */
+@media (min-width: 600px) {
+  #root>div {
+    width: 80%;
+    max-width: 800px;
+    /* större container på tablet */
+    padding: 10px;
+  }
+
+  form {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .todo-item span {
+    font-size: 18px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+/* Desktop: >900px */
+@media (min-width: 900px) {
+  #root>div {
+    width: 80%;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .todo-item span {
+    font-size: 20px;
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 18px;
+  }
 }
