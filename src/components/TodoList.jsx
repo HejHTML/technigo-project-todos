@@ -21,12 +21,23 @@ export const TodoList = () => {
                         checked={todo.completed}
                         onChange={() => toggleTodo(todo.id)}
                     />
-                    <span style={{
-                        textDecoration: todo.completed ? "line-through" : "none",
-                        marginLeft: "8px"
-                    }}>
-                        {todo.text} <small>{todo.createdAt}</small>
-                    </span>
+                    <div style={{ marginLeft: "8px" }}>
+
+                        <span style={{
+                            textDecoration: todo.completed ? "line-through" : "none"
+                        }}>
+                            {todo.text}
+                        </span>
+
+                        <small style={{
+                            display: "block",
+                            opacity: 0.7,
+                            fontSize: "12px"
+                        }}>
+                            {todo.createdAt}
+                        </small>
+
+                    </div>
                     <button onClick={() => removeTodo(todo.id)} style={{ marginLeft: "8px" }}>
                         Ta bort
                     </button>
