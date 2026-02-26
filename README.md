@@ -1,11 +1,21 @@
 # Todos
 
-Replace this readme with your own information about the project. You can include things like:
+This assignment was to build a web application using React. The goal was to create a functional and structured app with components, state management, and styling. The app allows the user to interact with the interface and view dynamic content based on the application state.
 
-- Brief description of the assignment
-- How you approached the task, what tools and techniques you used, and how you planned it
-- If you had more time, what would be next?
-- How to run the project locally
+How I approached the task
+
+I started by planning the structure of the application and dividing it into smaller React components. I used React for the frontend and Zustand for state management. I also used CSS for styling and Flexbox/Grid for layout.
+
+My focus was to make the app functional first, and then improve the structure and styling. I worked step by step, testing the app regularly to make sure everything worked correctly. I tried to keep the code organized and readable.
+
+If I had more time, what would be next?
+
+If I had more time, I would improve the semantic HTML to make the code more accessible and easier to understand. I would replace some div elements with more semantic elements like header, main, and section.
+
+I would also refactor some parts of the CSS to make it more reusable and improve the overall structure of the code.
+
+
+
 
 ## View it live
 Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
@@ -22,3 +32,5 @@ The command below is a combination of installing dependencies, opening up the pr
 ```bash
 npm i && code . && npm run dev
 ```
+
+http://localhost:5175/
