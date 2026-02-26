@@ -9,7 +9,6 @@ function App() {
   const remaining = todos.filter(todo => !todo.completed).length
   const [darkMode, setDarkMode] = useState(false)
 
-  // Lägg till / ta bort dark-mode class på body
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode")
@@ -47,13 +46,12 @@ function App() {
       {/* Remaining counter */}
       <p>Kvar att göra: {remaining}</p>
 
+      {/* Form och lista */}
+      <TodoForm />
       {/* Complete All / Remove All knapp */}
       <button onClick={toggleCompleteAllOrClear}>
         {completeButtonText}
       </button>
-
-      {/* Form och lista */}
-      <TodoForm />
       <TodoList />
     </div>
   )
