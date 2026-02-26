@@ -14,23 +14,46 @@ function App() {
     document.body.style.color = darkMode ? "#fff" : "#000"
   }, [darkMode])
 
-  // ✅ Bestämmer knapptext: "Complete All" eller "Remove All"
   const allCompleted = todos.length > 0 && todos.every(todo => todo.completed)
   const completeButtonText = allCompleted ? "Ta bort alla" : "Markera alla"
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Att göra-lista</h1>
+    <div style={{ maxWidth: "500px", margin: "40px auto", padding: "20px", position: "relative" }}>
 
+      {/* Header med Dark Mode-knapp */}
+      <div className="header-wrapper" style={{ position: "relative", marginBottom: "20px" }}>
+        <h1 style={{ textAlign: "center", margin: 0 }}>Att göra-lista</h1>
+        <button
+          onClick={() => setDarkMode(prev => !prev)}
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            padding: "6px 14px",
+            borderRadius: "4px",
+            fontWeight: 600,
+            background: "#124a14",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          {darkMode ? "Ljust läge" : "Mörkt läge"}
+        </button>
+      </div>
+
+      {/* Remaining counter */}
       <p>Kvar att göra: {remaining}</p>
 
-      <button onClick={toggleCompleteAllOrClear} style={{ marginBottom: "10px" }}>
+      {/* Complete All / Remove All knapp */}
+      <button
+        onClick={toggleCompleteAllOrClear}
+        style={{ marginBottom: "10px" }}
+      >
         {completeButtonText}
       </button>
-      <button onClick={() => setDarkMode(prev => !prev)} style={{ marginLeft: "10px" }}>
-        {darkMode ? "Ljust läge" : "Mörkt läge"}
-      </button>
 
+      {/* Form och lista */}
       <TodoForm />
       <TodoList />
     </div>
