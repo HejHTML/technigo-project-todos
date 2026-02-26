@@ -59,7 +59,7 @@ h1 {
 }
 
 .dark-mode-toggle:hover {
-  background: #062b08;
+  background: #062b08a9;
 }
 
 body.dark-mode .dark-mode-toggle {
@@ -68,7 +68,7 @@ body.dark-mode .dark-mode-toggle {
 }
 
 body.dark-mode .dark-mode-toggle:hover {
-  background: #a59d9dc3;
+  background: #a59d9dc5;
 }
 
 /*Buttons*/
