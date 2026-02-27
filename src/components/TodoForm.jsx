@@ -15,7 +15,9 @@ export const TodoForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+
             <input
+                className="todo-input"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Lägg till uppgift..."

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -17,12 +23,10 @@ body.dark-mode {
 
 /* App container */
 #root>div {
-  width: 85%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 350px;
   margin: 20px auto;
-  padding: 16px;
   border-radius: 12px;
-  background: #6bb47e;
   box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: background 0.3s, color 0.3s;
@@ -81,6 +85,14 @@ body.dark-mode .dark-mode-toggle:hover {
   margin-top: 2px;
 }
 
+.todo-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 18px;
+  padding: 14px 16px;
+  width: 100%;
+}
+
 /* Buttons */
 button {
   padding: 6px 14px;
@@ -111,31 +123,30 @@ button.dark-mode:hover {
 /* Form */
 form {
   display: flex;
+  max-width: 95%;
   flex-direction: column;
-  /* knapp under input på mobil */
   gap: 10px;
   margin-bottom: 16px;
+  padding: 20px 16px;
 }
 
 input[type="text"] {
-  flex: 1 1 100%;
-  padding: 8px 12px;
-  border: 1px solid #b2dfdb;
-  border-radius: 5px;
-  font-size: 16px;
+  width: 100%;
+  padding: 16px 16px;
+  font-size: 20px;
 }
 
 form button[type="submit"] {
-  flex: 1 1 auto;
-  font-size: 18px;
-  max-width: 150px;
+  flex: none;
+  font-size: 16px;
+  max-width: 125px;
 
 }
 
 /* Todo items */
 .todo-item {
   background: #ffffff;
-  padding: 10px 14px;
+  padding: 10px px;
   border-radius: 8px;
   margin-bottom: 8px;
   display: flex;
@@ -183,34 +194,50 @@ p {
 /* Tablet: 600px - 900px */
 @media (min-width: 600px) {
   #root>div {
-    width: 80%;
-    padding: 30px;
+    width: 100%;
+    padding: 16px;
+    max-width: 700px;
   }
 
   form {
     flex-direction: row;
     gap: 12px;
+    margin-bottom: 20px;
+    padding: 12px;
   }
 
   input[type="text"] {
-    flex: 4 1 0;
+    flex: 1 1 auto;
     font-size: 18px;
+    padding: 14px 16px;
+  }
+
+  .todo-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 18px;
+    padding: 14px 16px;
+    width: 100%;
   }
 
   form button[type="submit"] {
-    flex: 1 1 auto;
-    font-size: 18px;
-    max-width: 150px;
+    flex: none;
+    font-size: 16px;
+    width: 150px;
+    padding: 12px 16px;
   }
 
   .todo-item span {
     font-size: 18px;
+
   }
 
   button {
-    padding: 8px 16px;
+    padding: 8px 14px;
     font-size: 14px;
+    margin: 10px 10px;
   }
+
 }
 
 /* Desktop: >900px */
