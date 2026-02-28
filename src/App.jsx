@@ -6,6 +6,7 @@ import { useTodoStore } from "./store/useTodoStore"
 function App() {
   const todos = useTodoStore(state => state.todos)
   const toggleCompleteAllOrClear = useTodoStore(state => state.toggleCompleteAllOrClear)
+
   const remaining = todos.filter(todo => !todo.completed).length
   const [darkMode, setDarkMode] = useState(false)
 
@@ -20,6 +21,42 @@ function App() {
   const allCompleted = todos.length > 0 && todos.every(todo => todo.completed)
   const completeButtonText = allCompleted ? "Ta bort alla" : "Markera alla"
 
+  // ✅ PRINT FUNKTIONEN SKA LIGGA HÄR
+  const handlePrint = () => {
+    const printWindow = window.open("", "", "width=800,height=600");
+
+    const todoListHTML = todos
+      .map(
+        (todo) => `
+          <div style="margin-bottom:10px;">
+            <label style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" ${todo.completed ? "checked" : ""} disabled />
+              <span style="${todo.completed ? "text-decoration: line-through;" : ""}">
+                ${todo.text}
+              </span>
+            </label>
+          </div>
+        `
+      )
+      .join("");
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Min att-göra-lista</title>
+        </head>
+        <body style="font-family: Arial; padding:40px;">
+          <h1>Min att-göra-lista</h1>
+          ${todoListHTML}
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+    printWindow.print();
+  };
+
+  // ✅ ENDA RETURN
   return (
     <div
       style={{
@@ -31,7 +68,6 @@ function App() {
         transition: "background 0.3s, color 0.3s",
       }}
     >
-      {/* Header med Dark Mode-knapp */}
       <div style={{ position: "relative", marginBottom: "20px" }}>
         <h1 style={{ textAlign: "center", margin: 0 }}>Att göra-lista</h1>
         <button
@@ -42,15 +78,17 @@ function App() {
         </button>
       </div>
 
-      {/* Remaining counter */}
       <p>Kvar att göra: {remaining}</p>
 
-      {/* Form och lista */}
       <TodoForm />
-      {/* Complete All / Remove All knapp */}
+
       <button onClick={toggleCompleteAllOrClear}>
         {completeButtonText}
       </button>
+
+      {/* ✅ PRINT-KNAPPEN HÄR */}
+      <button onClick={handlePrint}>Skriv ut</button>
+
       <TodoList />
     </div>
   )
